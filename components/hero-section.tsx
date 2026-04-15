@@ -26,7 +26,7 @@ export function HeroSection() {
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
   const lang: keyof typeof heroCopy =
-    langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "en"
+    langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
   const copy = heroCopy[lang]
 
   return (

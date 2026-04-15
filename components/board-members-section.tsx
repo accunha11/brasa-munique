@@ -43,7 +43,7 @@ const boardMembersCopy = {
       university: "Ludwig Maximilian University of Munich",
       fieldOfStudy: "Communication Science",
       avatarAlt: "Elisa Lemmermann",
-      avatarSrc: "/assets/images/team/elisa.jpg",
+      avatarSrc: "/assets/images/team/Elisa.JPG",
     },
     {
       name: "Giulia Weber Colussi",
@@ -64,7 +64,7 @@ const boardMembersCopy = {
       university: "Ludwig Maximilian University of Munich",
       fieldOfStudy: "Law (Major)",
       avatarAlt: "Laura Santos de Quadros",
-      avatarSrc: "/assets/images/team/laura.jpg",
+      avatarSrc: "/assets/images/team/Laura.JPG",
     },
     {
       name: "Luiza Marchetti",
@@ -101,7 +101,7 @@ const boardMembersCopy = {
       university: "Universidade Ludwig Maximilian de Munique",
       fieldOfStudy: "Ciências da Comunicação",
       avatarAlt: "Elisa Lemmermann",
-      avatarSrc: "/assets/images/team/elisa.jpg",
+      avatarSrc: "/assets/images/team/Elisa.JPG",
     },
     {
       name: "Giulia Weber Colussi",
@@ -122,7 +122,7 @@ const boardMembersCopy = {
       university: "Universidade Ludwig Maximilian de Munique",
       fieldOfStudy: "Direito (Major)",
       avatarAlt: "Laura Santos de Quadros",
-      avatarSrc: "/assets/images/team/laura.jpg",
+      avatarSrc: "/assets/images/team/Laura.JPG",
     },
     {
       name: "Luiza Marchetti",
@@ -159,7 +159,7 @@ const boardMembersCopy = {
       university: "Ludwig-Maximilians-Universität München",
       fieldOfStudy: "Kommunikationswissenschaft",
       avatarAlt: "Elisa Lemmermann",
-      avatarSrc: "/assets/images/team/elisa.jpg",
+      avatarSrc: "/assets/images/team/Elisa.JPG",
     },
     {
       name: "Giulia Weber Colussi",
@@ -180,7 +180,7 @@ const boardMembersCopy = {
       university: "Ludwig-Maximilians-Universität München",
       fieldOfStudy: "Jura (Hauptfach)",
       avatarAlt: "Laura Santos de Quadros",
-      avatarSrc: "/assets/images/team/laura.jpg",
+      avatarSrc: "/assets/images/team/Laura.JPG",
     },
     {
       name: "Luiza Marchetti",
@@ -211,7 +211,7 @@ function initialsFromName(name: string) {
 export function BoardMembersSection() {
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
-  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "en"
+  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
   const copy = sectionCopy[lang]
   const boardMembers = boardMembersCopy[lang]
 

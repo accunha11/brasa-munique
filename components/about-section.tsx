@@ -23,7 +23,7 @@ const aboutCopy = {
 export function AboutSection() {
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
-  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "en"
+  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
   const copy = aboutCopy[lang]
 
   return (

@@ -73,7 +73,7 @@ export function SiteHeader() {
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
   const currentLang =
-    langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "en"
+    langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
   const copy = headerCopy[currentLang]
 
   const withLang = React.useCallback(

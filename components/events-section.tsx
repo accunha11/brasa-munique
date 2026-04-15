@@ -52,7 +52,7 @@ const eventsCopy = {
 export function EventsSection() {
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
-  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "en"
+  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
   const copy = eventsCopy[lang]
   const [photos, setPhotos] = React.useState<string[]>([])
   const autoplay = React.useRef(

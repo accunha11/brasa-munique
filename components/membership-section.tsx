@@ -75,7 +75,7 @@ const membershipCopy = {
 export function MembershipSection() {
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
-  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "en"
+  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
   const copy = membershipCopy[lang]
 
   return (
