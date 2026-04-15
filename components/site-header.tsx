@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 import Link from "next/link"
-import { Globe } from "lucide-react"
+import { Globe, Menu } from "lucide-react"
 import * as React from "react"
 import { usePathname, useSearchParams } from "next/navigation"
 
@@ -14,6 +14,14 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
 } from "@/components/ui/navigation-menu"
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from "@/components/ui/sheet"
 import { cn } from "@/lib/utils"
 
 const mainNav = [
@@ -59,6 +67,7 @@ const headerCopy = {
 
 export function SiteHeader() {
   const [scrolled, setScrolled] = React.useState(false)
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const pathname = usePathname()
   const searchParams = useSearchParams()
   const langParam = searchParams.get("lang")
@@ -130,8 +139,8 @@ export function SiteHeader() {
           </span>
         </Link>
 
-        {/* One NavigationMenu + one viewport (shadcn docs pattern) — avoids clipped dropdown panels */}
-        <NavigationMenu viewport={false} className="max-w-none flex-1 justify-end">
+        {/* Desktop navigation */}
+        <NavigationMenu viewport={false} className="hidden max-w-none flex-1 justify-end md:flex">
           <NavigationMenuList className="flex-wrap justify-end gap-1">
             {mainNav.map(({ href, labelKey, hash }) => (
               <NavigationMenuItem key={`${href}-${labelKey}`}>
@@ -183,6 +192,62 @@ export function SiteHeader() {
             </NavigationMenuItem>
           </NavigationMenuList>
         </NavigationMenu>
+
+        {/* Mobile navigation */}
+        <Sheet open={mobileMenuOpen} onOpenChange={setMobileMenuOpen}>
+          <SheetTrigger
+            className={cn(
+              "inline-flex size-9 items-center justify-center rounded-lg outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden",
+              scrolled
+                ? "text-[var(--background)] hover:bg-brand-blue-light/15"
+                : "text-white hover:bg-white/10"
+            )}
+            aria-label="Open menu"
+          >
+            <Menu className="size-5" aria-hidden="true" />
+          </SheetTrigger>
+          <SheetContent side="right" className="w-[85vw] max-w-sm">
+            <SheetHeader>
+              <SheetTitle>Menu</SheetTitle>
+            </SheetHeader>
+
+            <nav aria-label="Mobile navigation" className="mt-2 flex flex-col gap-2">
+              {mainNav.map(({ href, labelKey, hash }) => (
+                <SheetClose asChild key={`${href}-${labelKey}`}>
+                  <Link
+                    href={withLang(href, hash)}
+                    className="rounded-md px-2 py-2 text-sm font-medium text-foreground hover:bg-muted"
+                  >
+                    {copy[labelKey]}
+                  </Link>
+                </SheetClose>
+              ))}
+            </nav>
+
+            <div className="mt-4 border-t pt-4">
+              <p className="mb-2 text-xs font-medium tracking-wide text-muted-foreground uppercase">
+                {copy.languageSrOnly}
+              </p>
+              <div className="flex items-center gap-2">
+                {languageNav.map(({ code, label }) => (
+                  <SheetClose asChild key={code}>
+                    <Link
+                      href={languageHref(code)}
+                      className={cn(
+                        "rounded-md border px-2 py-1 text-xs font-medium",
+                        currentLang === code
+                          ? "border-brand-green bg-brand-green/10 text-brand-green"
+                          : "border-border text-foreground hover:bg-muted"
+                      )}
+                    >
+                      {label}
+                    </Link>
+                  </SheetClose>
+                ))}
+              </div>
+            </div>
+          </SheetContent>
+        </Sheet>
       </div>
     </header>
   )

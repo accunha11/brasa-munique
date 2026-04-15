@@ -67,7 +67,7 @@ export function EventsSection() {
 
     async function loadPhotos() {
       try {
-        const response = await fetch("/api/event-photos")
+        const response = await fetch("/assets/images/events/photos.json")
         if (!response.ok) {
           return
         }
