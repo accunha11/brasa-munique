@@ -11,6 +11,7 @@ import {
   CarouselNext,
   CarouselPrevious,
 } from "@/components/ui/carousel"
+import { withBasePath } from "@/lib/base-path"
 
 const eventsCopy = {
   en: {
@@ -67,14 +68,14 @@ export function EventsSection() {
 
     async function loadPhotos() {
       try {
-        const response = await fetch("/assets/images/events/photos.json")
+        const response = await fetch(withBasePath("/assets/images/events/photos.json"))
         if (!response.ok) {
           return
         }
 
         const data: { photos?: string[] } = await response.json()
         if (isMounted && Array.isArray(data.photos)) {
-          setPhotos(data.photos)
+          setPhotos(data.photos.map((photo) => withBasePath(photo)))
         }
       } catch {
         // Keep placeholders if loading fails.
@@ -120,7 +121,8 @@ export function EventsSection() {
           <div className="w-full px-4 lg:px-6">
             <Carousel opts={{ loop: true }} plugins={[autoplay.current]} className="w-full">
               <CarouselContent>
-                {(photos.length > 0 ? photos : ["/assets/images/events/placeholder-1"]).map((photo, index) => (
+                {(photos.length > 0 ? photos : [withBasePath("/assets/images/events/placeholder-1")]).map(
+                  (photo, index) => (
                   <CarouselItem key={`${photo}-${index}`}>
                     <div className="relative aspect-[4/3] w-full overflow-hidden rounded-xl">
                       {photos.length > 0 ? (
@@ -140,7 +142,8 @@ export function EventsSection() {
                       )}
                     </div>
                   </CarouselItem>
-                ))}
+                )
+                )}
               </CarouselContent>
               <CarouselPrevious className="bg-background/90" />
               <CarouselNext className="bg-background/90" />

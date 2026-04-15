@@ -22,6 +22,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import { withBasePath } from "@/lib/base-path"
 import { cn } from "@/lib/utils"
 
 const mainNav = [
@@ -122,7 +123,7 @@ export function SiteHeader() {
           className="flex shrink-0 items-center gap-2.5 rounded-md outline-none ring-offset-background transition-opacity hover:opacity-90 focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2"
         >
           <Image
-            src="/logo.png"
+            src={withBasePath("/logo.png")}
             alt="BRASA Munique"
             width={477}
             height={524}

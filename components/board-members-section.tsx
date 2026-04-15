@@ -2,6 +2,7 @@
 
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
+import { withBasePath } from "@/lib/base-path"
 import Link from "next/link"
 import { Instagram, Linkedin, Mail } from "lucide-react"
 import { useSearchParams } from "next/navigation"
@@ -235,7 +236,7 @@ export function BoardMembersSection() {
                 <CardContent className="flex flex-col items-center justify-center gap-4 pt-4 text-center">
                   <Avatar size="2xl">
                     <AvatarImage
-                      src={member.avatarSrc}
+                      src={withBasePath(member.avatarSrc)}
                       alt={member.avatarAlt}
                       className={
                         member.name === "Clara Sarkozy"
