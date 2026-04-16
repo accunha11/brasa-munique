@@ -21,7 +21,7 @@ const membershipCopy = {
       "Study meetups, watch parties, and other plans throughout the semester.",
     ],
     ticketsPriority:
-      "Members also get priority access to tickets for major chapter events.",
+      "Members also get priority access to tickets for major BRASA Munique events.",
     mentorshipTitle: "Alumni Network",
     mentorshipBody:
       "Get guidance from older students and alumni in your area whenever you need a hand.",
@@ -43,7 +43,7 @@ const membershipCopy = {
       "Meetups de estudo, watch parties e outros programas ao longo do semestre.",
     ],
     ticketsPriority:
-      "Membros também têm prioridade na compra de ingressos para os grandes eventos do capítulo.",
+      "Membros também têm prioridade na compra de ingressos para os grandes eventos da BRASA Munique.",
     mentorshipTitle: "Alumni Network",
     mentorshipBody:
       "Conte com apoio de alunos mais velhos e alumni da sua área quando precisar de orientação.",
@@ -65,7 +65,7 @@ const membershipCopy = {
       "Lerntreffen, Watch-Partys und weitere Aktionen im Semester.",
     ],
     ticketsPriority:
-      "Mitglieder erhalten außerdem bevorzugten Zugang zu Tickets für größere Chapter-Events.",
+      "Mitglieder erhalten außerdem bevorzugten Zugang zu Tickets für größere BRASA-Munique-Events.",
     mentorshipTitle: "Alumni Network",
     mentorshipBody:
       "Erhalte Unterstützung von älteren Studierenden und Alumni aus deinem Fachbereich.",

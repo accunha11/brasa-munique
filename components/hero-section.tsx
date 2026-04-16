@@ -17,7 +17,7 @@ const heroCopy = {
   },
   de: {
     welcome: "Willkommen bei",
-    subtitle: "Wo brasilianische Studierende von Universitaten in und um Munchen zusammenkommen",
+    subtitle: "Wo brasilianische Studierende von Universitäten in und um München zusammenkommen",
     learnMore: "Mehr erfahren",
   },
 } as const

@@ -17,9 +17,9 @@ const eventsCopy = {
   en: {
     title: "Events",
     intro:
-      "Our chapter is known for bringing people together through unforgettable cultural celebrations and community moments.",
+      "BRASA Munique is known for bringing people together through unforgettable cultural celebrations and community moments.",
     bullets: [
-      "Our Halloween parties are a chapter favorite, with themed nights, costumes, and a lot of Brazilian energy.",
+      "Our Halloween parties are a BRASA Munique favorite, with themed nights, costumes, and a lot of Brazilian energy.",
       "Festa Junina is one of our highlights, celebrating Brazilian traditions with music, food, and community.",
       "We also host members-only events to hang out, get to know each other better, and build real friendships.",
       "From casual volleyball meetups to Copa BRASA, we create spaces where students can connect through sports and fun.",
@@ -28,9 +28,9 @@ const eventsCopy = {
   pt: {
     title: "Eventos",
     intro:
-      "Nosso capítulo é conhecido por unir as pessoas por meio de celebrações culturais inesquecíveis e momentos de convivência.",
+      "A BRASA Munique é conhecida por unir as pessoas por meio de celebrações culturais inesquecíveis e momentos de convivência.",
     bullets: [
-      "Nossas festas de Halloween são uma das favoritas do capítulo, com noites temáticas, fantasias e muita energia brasileira.",
+      "Nossas festas de Halloween são uma das favoritas da BRASA Munique, com noites temáticas, fantasias e muita energia brasileira.",
       "A Festa Junina é um dos nossos destaques, celebrando tradições brasileiras com música, comida e comunidade.",
       "Também organizamos eventos exclusivos para membros para confraternizar, nos conhecermos melhor e fortalecer amizades reais.",
       "De encontros casuais de vôlei até a Copa BRASA, criamos espaços em que estudantes se conectam por meio do esporte e da diversão.",
@@ -39,9 +39,9 @@ const eventsCopy = {
   de: {
     title: "Veranstaltungen",
     intro:
-      "Unser Chapter ist dafür bekannt, Menschen durch unvergessliche kulturelle Feiern und Gemeinschaftsmomente zusammenzubringen.",
+      "BRASA Munique ist dafür bekannt, Menschen durch unvergessliche kulturelle Feiern und Gemeinschaftsmomente zusammenzubringen.",
     bullets: [
-      "Unsere Halloween-Partys gehören zu den Favoriten im Chapter: Themenabende, Kostüme und viel brasilianische Energie.",
+      "Unsere Halloween-Partys gehören zu den Favoriten bei BRASA Munique: Mottoabend, Kostüme und viel brasilianische Energie.",
       "Die Festa Junina ist eines unserer Highlights und feiert brasilianische Traditionen mit Musik, Essen und Gemeinschaft.",
       "Außerdem organisieren wir exklusive Mitglieder-Events, um Zeit miteinander zu verbringen, uns besser kennenzulernen und echte Freundschaften aufzubauen.",
       "Von lockeren Volleyball-Treffen bis zur Copa BRASA schaffen wir Räume, in denen sich Studierende durch Sport und Spaß vernetzen können.",
