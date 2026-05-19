@@ -46,11 +46,11 @@ const boardMembersCopy = {
       avatarSrc: "/assets/images/team/Elisa.JPG",
     },
     {
-      name: "Giulia Weber Colussi",
-      university: "Ludwig Maximilian University of Munich",
-      fieldOfStudy: "Business Administration (Specialization in Finance)",
-      avatarAlt: "Giulia Weber Colussi",
-      avatarSrc: "/assets/images/team/Giulia.jpeg",
+      name: "João Francisco Pinto Oliveira",
+      university: "Technische Hochschule Deggendorf",
+      fieldOfStudy: "Industrial Engineering",
+      avatarAlt: "João Francisco Pinto Oliveira",
+      avatarSrc: "/assets/images/team/JF.jpg",
     },
     {
       name: "João Gabriel Bento Alves",
@@ -65,13 +65,6 @@ const boardMembersCopy = {
       fieldOfStudy: "Law (Major)",
       avatarAlt: "Laura Santos de Quadros",
       avatarSrc: "/assets/images/team/Laura.JPG",
-    },
-    {
-      name: "Luiza Marchetti",
-      university: "Ludwig Maximilian University of Munich",
-      fieldOfStudy: "Economics",
-      avatarAlt: "Luiza Marchetti",
-      avatarSrc: "/assets/images/team/Luiza.jpeg",
     },
     {
       name: "Sophie Lundgren",
@@ -104,11 +97,11 @@ const boardMembersCopy = {
       avatarSrc: "/assets/images/team/Elisa.JPG",
     },
     {
-      name: "Giulia Weber Colussi",
-      university: "Universidade Ludwig Maximilian de Munique",
-      fieldOfStudy: "Administração de Empresas (Especialização em Finanças)",
-      avatarAlt: "Giulia Weber Colussi",
-      avatarSrc: "/assets/images/team/Giulia.jpeg",
+      name: "João Francisco Pinto Oliveira",
+      university: "Technische Hochschule Deggendorf",
+      fieldOfStudy: "Engenharia Industrial",
+      avatarAlt: "João Francisco Pinto Oliveira",
+      avatarSrc: "/assets/images/team/JF.jpg",
     },
     {
       name: "João Gabriel Bento Alves",
@@ -123,13 +116,6 @@ const boardMembersCopy = {
       fieldOfStudy: "Direito (Major)",
       avatarAlt: "Laura Santos de Quadros",
       avatarSrc: "/assets/images/team/Laura.JPG",
-    },
-    {
-      name: "Luiza Marchetti",
-      university: "Universidade Ludwig Maximilian de Munique",
-      fieldOfStudy: "Economia",
-      avatarAlt: "Luiza Marchetti",
-      avatarSrc: "/assets/images/team/Luiza.jpeg",
     },
     {
       name: "Sophie Lundgren",
@@ -162,11 +148,11 @@ const boardMembersCopy = {
       avatarSrc: "/assets/images/team/Elisa.JPG",
     },
     {
-      name: "Giulia Weber Colussi",
-      university: "Ludwig-Maximilians-Universität München",
-      fieldOfStudy: "BWL (Schwerpunkt Finanzen)",
-      avatarAlt: "Giulia Weber Colussi",
-      avatarSrc: "/assets/images/team/Giulia.jpeg",
+      name: "João Francisco Pinto Oliveira",
+      university: "Technische Hochschule Deggendorf",
+      fieldOfStudy: "Wirtschaftsingenieurwesen",
+      avatarAlt: "João Francisco Pinto Oliveira",
+      avatarSrc: "/assets/images/team/JF.jpg",
     },
     {
       name: "João Gabriel Bento Alves",
@@ -181,13 +167,6 @@ const boardMembersCopy = {
       fieldOfStudy: "Jura (Hauptfach)",
       avatarAlt: "Laura Santos de Quadros",
       avatarSrc: "/assets/images/team/Laura.JPG",
-    },
-    {
-      name: "Luiza Marchetti",
-      university: "Ludwig-Maximilians-Universität München",
-      fieldOfStudy: "Volkswirtschaftslehre",
-      avatarAlt: "Luiza Marchetti",
-      avatarSrc: "/assets/images/team/Luiza.jpeg",
     },
     {
       name: "Sophie Lundgren",
@@ -241,9 +220,7 @@ export function BoardMembersSection() {
                       className={
                         member.name === "Clara Sarkozy"
                           ? "scale-150 translate-x-4 translate-y-6"
-                          : member.name === "Luiza Marchetti"
-                            ? "scale-150 translate-y-5"
-                            : "scale-150"
+                          : "scale-150"
                       }
                     />
                     <AvatarFallback>{initialsFromName(member.name)}</AvatarFallback>
