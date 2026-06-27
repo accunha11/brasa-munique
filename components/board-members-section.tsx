@@ -3,6 +3,7 @@
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Card, CardContent } from "@/components/ui/card"
 import { withBasePath } from "@/lib/base-path"
+import { parseLang } from "@/lib/lang"
 import Link from "next/link"
 import { Instagram, Linkedin, Mail } from "lucide-react"
 import { useSearchParams } from "next/navigation"
@@ -22,161 +23,78 @@ const sectionCopy = {
   },
 } as const
 
-const boardMembersCopy = {
-  en: [
-    {
-      name: "Ana Carolina Cunha",
-      university: "Technical University of Munich",
-      fieldOfStudy: "Informatics",
-      avatarAlt: "Ana Carolina Cunha",
-      avatarSrc: "/assets/images/team/Carol.jpg",
+const boardMembers = [
+  {
+    name: "Sophie Lundgren",
+    avatarAlt: "Sophie Lundgren",
+    avatarSrc: "/assets/images/team/Sophie.jpeg",
+    title: {
+      en: "President",
+      pt: "Presidente",
+      de: "Präsidentin",
     },
-    {
-      name: "Clara Sarkozy",
-      university: "Technical University of Munich",
-      fieldOfStudy: "Architecture",
-      avatarAlt: "Clara Sarkozy",
-      avatarSrc: "/assets/images/team/Clara.jpeg",
+  },
+  {
+    name: "João Gabriel Bento Alves",
+    avatarAlt: "João Gabriel Bento Alves",
+    avatarSrc: "/assets/images/team/Joao.jpeg",
+    title: {
+      en: "Head of Membership",
+      pt: "Responsável por Membros",
+      de: "Leiter Mitgliedschaft",
     },
-    {
-      name: "Elisa Lemmermann",
-      university: "Ludwig Maximilian University of Munich",
-      fieldOfStudy: "Communication Science",
-      avatarAlt: "Elisa Lemmermann",
-      avatarSrc: "/assets/images/team/Elisa.JPG",
+  },
+  {
+    name: "Laura Santos de Quadros",
+    avatarAlt: "Laura Santos de Quadros",
+    avatarSrc: "/assets/images/team/Laura.JPG",
+    title: {
+      en: "Head of Legal and Finance",
+      pt: "Responsável Jurídico e Financeiro",
+      de: "Leiterin Recht & Finanzen",
     },
-    {
-      name: "João Francisco Pinto Oliveira",
-      university: "Technische Hochschule Deggendorf",
-      fieldOfStudy: "Industrial Engineering",
-      avatarAlt: "João Francisco Pinto Oliveira",
-      avatarSrc: "/assets/images/team/JF.jpg",
+  },
+  {
+    name: "Elisa Lemmermann",
+    avatarAlt: "Elisa Lemmermann",
+    avatarSrc: "/assets/images/team/Elisa.JPG",
+    title: {
+      en: "Head of Marketing",
+      pt: "Responsável por Marketing",
+      de: "Leiterin Marketing",
     },
-    {
-      name: "João Gabriel Bento Alves",
-      university: "Technical University of Munich",
-      fieldOfStudy: "Physics B.Sc.",
-      avatarAlt: "João Gabriel Bento Alves",
-      avatarSrc: "/assets/images/team/Joao.jpeg",
+  },
+  {
+    name: "Ana Carolina Cunha",
+    avatarAlt: "Ana Carolina Cunha",
+    avatarSrc: "/assets/images/team/Carol.jpg",
+    title: {
+      en: "Head of IT",
+      pt: "Responsável de TI",
+      de: "Leiterin IT",
     },
-    {
-      name: "Laura Santos de Quadros",
-      university: "Ludwig Maximilian University of Munich",
-      fieldOfStudy: "Law (Major)",
-      avatarAlt: "Laura Santos de Quadros",
-      avatarSrc: "/assets/images/team/Laura.JPG",
+  },
+  {
+    name: "Clara Sarkozy",
+    avatarAlt: "Clara Sarkozy",
+    avatarSrc: "/assets/images/team/Clara.jpeg",
+    title: {
+      en: "Head of Events",
+      pt: "Responsável por Eventos",
+      de: "Leiterin Veranstaltungen",
     },
-    {
-      name: "Sophie Lundgren",
-      university: "Hochschule Fresenius",
-      fieldOfStudy: "Business Administration",
-      avatarAlt: "Sophie Lundgren",
-      avatarSrc: "/assets/images/team/Sophie.jpeg",
+  },
+  {
+    name: "João Francisco Pinto Oliveira",
+    avatarAlt: "João Francisco Pinto Oliveira",
+    avatarSrc: "/assets/images/team/JF.jpg",
+    title: {
+      en: "Events Analyst",
+      pt: "Analista de Eventos",
+      de: "Event-Analyst",
     },
-  ],
-  pt: [
-    {
-      name: "Ana Carolina Cunha",
-      university: "Universidade Técnica de Munique",
-      fieldOfStudy: "Informática",
-      avatarAlt: "Ana Carolina Cunha",
-      avatarSrc: "/assets/images/team/Carol.jpg",
-    },
-    {
-      name: "Clara Sarkozy",
-      university: "Universidade Técnica de Munique",
-      fieldOfStudy: "Arquitetura",
-      avatarAlt: "Clara Sarkozy",
-      avatarSrc: "/assets/images/team/Clara.jpeg",
-    },
-    {
-      name: "Elisa Lemmermann",
-      university: "Universidade Ludwig Maximilian de Munique",
-      fieldOfStudy: "Ciências da Comunicação",
-      avatarAlt: "Elisa Lemmermann",
-      avatarSrc: "/assets/images/team/Elisa.JPG",
-    },
-    {
-      name: "João Francisco Pinto Oliveira",
-      university: "Technische Hochschule Deggendorf",
-      fieldOfStudy: "Engenharia Industrial",
-      avatarAlt: "João Francisco Pinto Oliveira",
-      avatarSrc: "/assets/images/team/JF.jpg",
-    },
-    {
-      name: "João Gabriel Bento Alves",
-      university: "Universidade Técnica de Munique",
-      fieldOfStudy: "Física (Bacharelado)",
-      avatarAlt: "João Gabriel Bento Alves",
-      avatarSrc: "/assets/images/team/Joao.jpeg",
-    },
-    {
-      name: "Laura Santos de Quadros",
-      university: "Universidade Ludwig Maximilian de Munique",
-      fieldOfStudy: "Direito (Major)",
-      avatarAlt: "Laura Santos de Quadros",
-      avatarSrc: "/assets/images/team/Laura.JPG",
-    },
-    {
-      name: "Sophie Lundgren",
-      university: "Hochschule Fresenius",
-      fieldOfStudy: "Administração de Empresas",
-      avatarAlt: "Sophie Lundgren",
-      avatarSrc: "/assets/images/team/Sophie.jpeg",
-    },
-  ],
-  de: [
-    {
-      name: "Ana Carolina Cunha",
-      university: "Technische Universität München",
-      fieldOfStudy: "Informatik",
-      avatarAlt: "Ana Carolina Cunha",
-      avatarSrc: "/assets/images/team/Carol.jpg",
-    },
-    {
-      name: "Clara Sarkozy",
-      university: "Technische Universität München",
-      fieldOfStudy: "Architektur",
-      avatarAlt: "Clara Sarkozy",
-      avatarSrc: "/assets/images/team/Clara.jpeg",
-    },
-    {
-      name: "Elisa Lemmermann",
-      university: "Ludwig-Maximilians-Universität München",
-      fieldOfStudy: "Kommunikationswissenschaft",
-      avatarAlt: "Elisa Lemmermann",
-      avatarSrc: "/assets/images/team/Elisa.JPG",
-    },
-    {
-      name: "João Francisco Pinto Oliveira",
-      university: "Technische Hochschule Deggendorf",
-      fieldOfStudy: "Wirtschaftsingenieurwesen",
-      avatarAlt: "João Francisco Pinto Oliveira",
-      avatarSrc: "/assets/images/team/JF.jpg",
-    },
-    {
-      name: "João Gabriel Bento Alves",
-      university: "Technische Universität München",
-      fieldOfStudy: "Physik (B.Sc.)",
-      avatarAlt: "João Gabriel Bento Alves",
-      avatarSrc: "/assets/images/team/Joao.jpeg",
-    },
-    {
-      name: "Laura Santos de Quadros",
-      university: "Ludwig-Maximilians-Universität München",
-      fieldOfStudy: "Jura (Hauptfach)",
-      avatarAlt: "Laura Santos de Quadros",
-      avatarSrc: "/assets/images/team/Laura.JPG",
-    },
-    {
-      name: "Sophie Lundgren",
-      university: "Hochschule Fresenius",
-      fieldOfStudy: "BWL",
-      avatarAlt: "Sophie Lundgren",
-      avatarSrc: "/assets/images/team/Sophie.jpeg",
-    },
-  ],
-} as const
+  },
+] as const
 
 function initialsFromName(name: string) {
   return name
@@ -189,10 +107,8 @@ function initialsFromName(name: string) {
 
 export function BoardMembersSection() {
   const searchParams = useSearchParams()
-  const langParam = searchParams.get("lang")
-  const lang = langParam === "pt" || langParam === "de" || langParam === "en" ? langParam : "pt"
+  const lang = parseLang(searchParams.get("lang"))
   const copy = sectionCopy[lang]
-  const boardMembers = boardMembersCopy[lang]
 
   return (
     <section
@@ -228,8 +144,7 @@ export function BoardMembersSection() {
 
                   <div className="min-w-0 space-y-1">
                     <p className="text-base font-semibold text-foreground">{member.name}</p>
-                    <p className="text-sm text-muted-foreground">{member.university}</p>
-                    <p className="text-sm text-muted-foreground">{member.fieldOfStudy}</p>
+                    <p className="text-sm text-muted-foreground">{member.title[lang]}</p>
                   </div>
                 </CardContent>
               </Card>

@@ -4,6 +4,7 @@ import localFont from "next/font/local"
 import { Suspense } from "react"
 
 import "./globals.css"
+import { SiteFooter } from "@/components/site-footer"
 import { SiteHeader } from "@/components/site-header"
 import { cn } from "@/lib/utils"
 
@@ -62,6 +63,9 @@ export default function RootLayout({
             <SiteHeader />
           </Suspense>
           <main className="flex-1">{children}</main>
+          <Suspense fallback={null}>
+            <SiteFooter />
+          </Suspense>
         </div>
       </body>
     </html>

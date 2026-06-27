@@ -101,6 +101,10 @@ export function SiteHeader() {
     [pathname, searchParams]
   )
 
+  const normalizedPath = pathname?.replace(/\/$/, "") ?? ""
+  const isLegalPage = normalizedPath === "/impressum" || normalizedPath === "/datenschutz"
+  const solidHeader = scrolled || isLegalPage
+
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 10)
     onScroll()
@@ -112,8 +116,11 @@ export function SiteHeader() {
     <header
       className={cn(
         "sticky top-0 z-40 w-full border-b backdrop-blur-md transition-colors",
-        scrolled
-          ? "border-border/0 bg-brand-green/85 text-[var(--background)]"
+        solidHeader
+          ? cn(
+              "border-border/0 text-[var(--background)]",
+              isLegalPage ? "bg-brand-green" : "bg-brand-green/85"
+            )
           : "border-transparent bg-transparent text-white"
       )}
     >
@@ -133,7 +140,7 @@ export function SiteHeader() {
           <span
             className={cn(
               "text-sm font-semibold tracking-tight",
-              scrolled ? "text-[var(--background)]" : "text-white"
+              solidHeader ? "text-[var(--background)]" : "text-white"
             )}
           >
             BRASA Munique
@@ -149,7 +156,7 @@ export function SiteHeader() {
                   asChild
                   className={cn(
                     "group/navigation-menu-trigger inline-flex h-9 w-max items-center justify-center rounded-lg px-2.5 py-1.5 text-sm font-medium transition-all outline-none disabled:pointer-events-none disabled:opacity-50 focus-visible:ring-3 focus-visible:ring-ring/50 focus-visible:outline-1",
-                    scrolled
+                    solidHeader
                       ? "bg-transparent text-[var(--background)] hover:bg-brand-blue-light/15 focus:bg-brand-blue-light/15 data-popup-open:bg-brand-blue-light/20 data-popup-open:hover:bg-brand-blue-light/20 data-open:bg-brand-blue-light/20 data-open:hover:bg-brand-blue-light/20 data-open:focus:bg-brand-blue-light/20"
                       : "bg-transparent text-white hover:bg-white/10 focus:bg-white/10 data-popup-open:bg-white/15 data-popup-open:hover:bg-white/15 data-open:bg-white/15 data-open:hover:bg-white/15 data-open:focus:bg-white/15"
                   )}
@@ -163,7 +170,7 @@ export function SiteHeader() {
               <NavigationMenuTrigger
                 className={cn(
                   "gap-1",
-                  scrolled
+                  solidHeader
                     ? "bg-transparent hover:bg-brand-blue-light/15 focus:bg-brand-blue-light/15 data-popup-open:bg-brand-blue-light/20 data-popup-open:hover:bg-brand-blue-light/20 data-open:bg-brand-blue-light/20 data-open:hover:bg-brand-blue-light/20 data-open:focus:bg-brand-blue-light/20"
                     : "bg-transparent text-white hover:bg-white/10 focus:bg-white/10 data-popup-open:bg-white/15 data-popup-open:hover:bg-white/15 data-open:bg-white/15 data-open:hover:bg-white/15 data-open:focus:bg-white/15"
                 )}
@@ -199,7 +206,7 @@ export function SiteHeader() {
           <SheetTrigger
             className={cn(
               "inline-flex size-9 items-center justify-center rounded-lg outline-none transition-colors focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 md:hidden",
-              scrolled
+              solidHeader
                 ? "text-[var(--background)] hover:bg-brand-blue-light/15"
                 : "text-white hover:bg-white/10"
             )}
