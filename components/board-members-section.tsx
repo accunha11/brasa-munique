@@ -75,6 +75,28 @@ const boardMembers = [
     },
   },
   {
+    name: "Lorena Soares",
+    avatarAlt: "Lorena Soares",
+    avatarSrc: "/assets/images/team/Lorena.jpeg",
+    avatarClassName: "scale-100 object-[50%_20%]",
+    title: {
+      en: "Head of Academic Events",
+      pt: "Responsável por Eventos Acadêmicos",
+      de: "Leiterin für Akademische Veranstaltungen",
+    },
+  },
+  {
+    name: "Laura Fadin",
+    avatarAlt: "Laura Fadin",
+    avatarSrc: "/assets/images/team/Laura Fadin.jpeg",
+    avatarClassName: "scale-100 object-[50%_10%]",
+    title: {
+      en: "Head of Academic Events",
+      pt: "Responsável por Eventos Acadêmicos",
+      de: "Leiterin für Akademische Veranstaltungen",
+    },
+  },
+  {
     name: "Clara Sarkozy",
     avatarAlt: "Clara Sarkozy",
     avatarSrc: "/assets/images/team/Clara.jpeg",
@@ -85,9 +107,29 @@ const boardMembers = [
     },
   },
   {
+    name: "Gabriel Lagos",
+    avatarAlt: "Gabriel Lagos",
+    avatarSrc: "/assets/images/team/Gabriel.jpeg",
+    avatarClassName: "scale-105 object-[40%_10%]",
+    title: {
+      en: "Events Analyst",
+      pt: "Analista de Eventos",
+      de: "Event-Analyst",
+    },
+  },
+  {
     name: "João Francisco Pinto Oliveira",
     avatarAlt: "João Francisco Pinto Oliveira",
     avatarSrc: "/assets/images/team/JF.jpg",
+    title: {
+      en: "Events Analyst",
+      pt: "Analista de Eventos",
+      de: "Event-Analyst",
+    },
+  },
+  {
+    name: "Lukas",
+    avatarAlt: "Lukas",
     title: {
       en: "Events Analyst",
       pt: "Analista de Eventos",
@@ -130,15 +172,19 @@ export function BoardMembersSection() {
               <Card key={member.name} className="bg-card/90">
                 <CardContent className="flex flex-col items-center justify-center gap-4 pt-4 text-center">
                   <Avatar size="2xl">
-                    <AvatarImage
-                      src={withBasePath(member.avatarSrc)}
-                      alt={member.avatarAlt}
-                      className={
-                        member.name === "Clara Sarkozy"
-                          ? "scale-150 translate-x-4 translate-y-6"
-                          : "scale-150"
-                      }
-                    />
+                    {"avatarSrc" in member ? (
+                      <AvatarImage
+                        src={withBasePath(member.avatarSrc)}
+                        alt={member.avatarAlt}
+                        className={
+                          member.name === "Clara Sarkozy"
+                            ? "scale-150 translate-x-4 translate-y-6"
+                            : "avatarClassName" in member
+                              ? member.avatarClassName
+                              : "scale-150"
+                        }
+                      />
+                    ) : null}
                     <AvatarFallback>{initialsFromName(member.name)}</AvatarFallback>
                   </Avatar>
 
