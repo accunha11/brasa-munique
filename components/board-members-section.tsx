@@ -49,9 +49,9 @@ const boardMembers = [
     avatarAlt: "Laura Santos de Quadros",
     avatarSrc: "/assets/images/team/Laura.JPG",
     title: {
-      en: "Head of Legal and Finance",
-      pt: "Responsável Jurídico e Financeiro",
-      de: "Leiterin Recht & Finanzen",
+      en: "Head of Academic Events and Legal",
+      pt: "Responsável por Eventos Acadêmicos e Jurídico",
+      de: "Leiterin Akademische Veranstaltungen & Recht",
     },
   },
   {
@@ -80,9 +80,9 @@ const boardMembers = [
     avatarSrc: "/assets/images/team/Lorena.jpeg",
     avatarClassName: "scale-100 object-[50%_20%]",
     title: {
-      en: "Head of Academic Events",
-      pt: "Responsável por Eventos Acadêmicos",
-      de: "Leiterin für Akademische Veranstaltungen",
+      en: "Academic Events Analyst",
+      pt: "Analista de Eventos Acadêmicos",
+      de: "Analystin für Akademische Veranstaltungen",
     },
   },
   {
@@ -91,9 +91,9 @@ const boardMembers = [
     avatarSrc: "/assets/images/team/Laura Fadin.jpeg",
     avatarClassName: "scale-100 object-[50%_10%]",
     title: {
-      en: "Head of Academic Events",
-      pt: "Responsável por Eventos Acadêmicos",
-      de: "Leiterin für Akademische Veranstaltungen",
+      en: "Academic Events Analyst",
+      pt: "Analista de Eventos Acadêmicos",
+      de: "Analystin für Akademische Veranstaltungen",
     },
   },
   {
